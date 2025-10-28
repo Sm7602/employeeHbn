@@ -2,19 +2,25 @@ package com.hbn.employee;
 
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+//import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
+//import org.hibernate.boot.Metadata;
+import org.hibernate.boot.MetadataSources;
+//import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+
 
 import com.hbn.employee.entity.Employee;
 
 public class Main {
 	public static void main(String[] arg) {
-		Employee emp=new Employee(201,"vinoy","male",98000);
+		Employee emp=new Employee(201,"vin","male",98000);
 		
-//		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-		SessionFactory sessionFactory =new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-		Session session = sessionFactory.openSession();
+//		StandardServiceRegistry ssr=new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
+//		Metadata meta=new MetadataSources(ssr).getMetadataBuilder().build();
+//		SessionFactory sessionFactory=meta.buildSessionFactory();
+//		Session session = sessionFactory.openSession();
+		Session session =new MetadataSources(new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build()).getMetadataBuilder().build().buildSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
 		
 		session.persist(emp);
