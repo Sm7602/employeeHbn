@@ -10,10 +10,10 @@ import com.hbn.employee.entity.Employee;
 
 public class Main {
 	public static void main(String[] arg) {
-		Employee emp=new Employee(201,"vikas","male",98000);
+		Employee emp=new Employee(201,"vinoy","male",98000);
 		
-		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-		SessionFactory sessionFactory = cfg.buildSessionFactory();
+//		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+		SessionFactory sessionFactory =new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		

@@ -3,11 +3,11 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
     
     <hibernate-mapping>
-    <class name="com.hbn.employee.entity.Employee">
-    <id name="id"/>
-    <property name="name"/>
-     <property name="gender"/>
-      <property name="salary"/>
+    <class name="com.hbn.employee.entity.Employee" table="emp">
+    <id name="id" column="emp_id"/>
+    <property name="name" column="Name"/>
+     <property name="gender" column="Gender"/>
+      <property name="salary" column="Salary"/>
     </class>
     
     </hibernate-mapping>
