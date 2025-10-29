@@ -4,7 +4,9 @@
     
     <hibernate-mapping>
     <class name="com.hbn.employee.entity.Employee" table="emp">
-    <id name="id" column="emp_id"/>
+    <id name="id" column="emp_id">
+      <generator class="identity"></generator>
+    </id>
     <property name="name" column="Name"/>
      <property name="gender" column="Gender"/>
       <property name="salary" column="Salary"/>
