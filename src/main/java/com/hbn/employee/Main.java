@@ -13,7 +13,7 @@ import com.hbn.employee.entity.Employee;
 
 public class Main {
 	public static void main(String[] arg) {
-		Employee emp=new Employee("vin","male",98000);
+		Employee emp=new Employee();
 		
 //		StandardServiceRegistry ssr=new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
 //		Metadata meta=new MetadataSources(ssr).getMetadataBuilder().build();
@@ -24,8 +24,12 @@ public class Main {
 		Session session =Hibernateconfiguration.getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
 		
-		session.persist(emp);
-		tx.commit();
+//		session.persist(emp);
+//		tx.commit();
+//		emp=session.get(Employee.class, 1);
+		session.load(emp, 2);
+		System.out.print(emp);
+		
 		System.out.println("done.............");
 	}
 
