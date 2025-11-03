@@ -26,9 +26,17 @@ public class Main {
 		
 //		session.persist(emp);
 //		tx.commit();
-//		emp=session.get(Employee.class, 1);
-		session.load(emp, 2);
-		System.out.print(emp);
+		
+		emp=session.get(Employee.class, 2);
+//		session.load(emp, 2);
+//		System.out.print(emp);
+		
+//		emp.setName("huhu");
+//		session.merge(emp);
+//		tx.commit();
+		
+		session.remove(emp);
+		tx.commit();
 		
 		System.out.println("done.............");
 	}
