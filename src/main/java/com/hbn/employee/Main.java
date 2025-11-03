@@ -15,28 +15,10 @@ public class Main {
 	public static void main(String[] arg) {
 		Employee emp=new Employee();
 		
-//		StandardServiceRegistry ssr=new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
-//		Metadata meta=new MetadataSources(ssr).getMetadataBuilder().build();
-//		SessionFactory sessionFactory=meta.buildSessionFactory();
-//		Session session = sessionFactory.openSession();
-		
-//		SessionFactory sessionFactory= Hibernateconfiguration.getSessionFactory();
 		Session session =Hibernateconfiguration.getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
 		
-//		session.persist(emp);
-//		tx.commit();
-		
-		emp=session.get(Employee.class, 2);
-//		session.load(emp, 2);
-//		System.out.print(emp);
-		
-//		emp.setName("huhu");
-//		session.merge(emp);
-//		tx.commit();
-		
-		session.remove(emp);
-		tx.commit();
+
 		
 		System.out.println("done.............");
 	}
