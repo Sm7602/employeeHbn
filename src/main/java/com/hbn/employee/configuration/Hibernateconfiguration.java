@@ -24,7 +24,7 @@ public class Hibernateconfiguration {
 //		SessionFactory sessionFactory=meta.buildSessionFactory();
 
 		return new MetadataSources(new StandardServiceRegistryBuilder().applySettings(prop).build())
-				.addAnnotatedClass(com.hbn.employee.entity.Employee.class).buildMetadata().buildSessionFactory();
+				.addAnnotatedClasses(com.hbn.employee.entity.Employee.class,com.hbn.employee.entity.Address.class).buildMetadata().buildSessionFactory();
 	}
 
 }
