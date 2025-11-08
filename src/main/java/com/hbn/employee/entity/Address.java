@@ -13,7 +13,7 @@ public class Address {
 	private int id;
 	private String city;
 	private String state;
-	@OneToOne
+	@OneToOne(mappedBy = "address")
 	private Employee employee;
 	
 	public Address( String city, String state) {
@@ -61,7 +61,7 @@ public class Address {
 
 	@Override
 	public String toString() {
-		return "Address [id=" + id + ", city=" + city + ", state=" + state + ", employee=" + employee + "]";
+		return "Address [id=" + id + ", city=" + city + ", state=" + state + "]";
 	}
 
 	
