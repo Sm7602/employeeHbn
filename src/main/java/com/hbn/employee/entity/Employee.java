@@ -1,13 +1,15 @@
 package com.hbn.employee.entity;
 
+import java.util.List;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 
-@Entity(name="empp")
+@Entity
 public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,8 +17,8 @@ public class Employee {
 	private String name,gender;
 	private int salary;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	private Address address;
+	  @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+	private List<Address> addresses;
 	
 	public Employee() {
 		super();
@@ -28,11 +30,11 @@ public class Employee {
 		this.salary = salary;
 	}
 	
-	public Address getAddress() {
-		return address;
+	public List<Address> getAddresses() {
+		return addresses;
 	}
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
 	}
 	public int getId() {
 		return id;
