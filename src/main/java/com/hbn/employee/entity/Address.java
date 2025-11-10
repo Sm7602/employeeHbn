@@ -1,10 +1,12 @@
 package com.hbn.employee.entity;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.ManyToMany;
 
 
 @Entity
@@ -14,8 +16,8 @@ public class Address {
 	private int id;
 	private String city;
 	private String state;
-	@ManyToOne
-	private Employee employee;
+	@ManyToMany
+	private List<Employee> employeees;
 	
 	public Address( String city, String state) {
 		super();
@@ -52,12 +54,13 @@ public class Address {
 		this.state = state;
 	}
 
-	public Employee getEmployee() {
-		return employee;
+
+	public List<Employee> getEmployeees() {
+		return employeees;
 	}
 
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
+	public void setEmployeees(List<Employee> employeees) {
+		this.employeees = employeees;
 	}
 
 	@Override
